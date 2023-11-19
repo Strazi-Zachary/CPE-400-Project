@@ -15,9 +15,9 @@ class NetworkScanner:
         self.nm.scan(hosts=network_mask, arguments='-sn')
         print("Scanning Complete")
 
-        data = {'ip': [], 'mac': [], 'name': []}
+        data = {'ip': [], 'windows': [], 'name': []}
         for host_ip in self.nm.all_hosts():
-            host_mac = self.nm[host_ip]['addresses'].get('mac', '')
+            host_mac = self.nm[host_ip]['addresses'].get('windows', '')
             host_name = self.nm[host_ip].hostname()
             data['ip'].append(host_ip)
             data['mac'].append(host_mac)
